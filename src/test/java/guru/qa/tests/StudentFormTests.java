@@ -1,5 +1,6 @@
 package guru.qa.tests;
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeAll;
 
 import com.codeborne.selenide.Configuration;
@@ -7,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.cssValue;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -14,7 +17,8 @@ public class StudentFormTests {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "2100x1080";
+        Configuration.browser = "FIREFOX";
+        Configuration.browserSize = "1920x1080";
         open("https://demoqa.com/automation-practice-form");
     }
 
@@ -70,5 +74,23 @@ public class StudentFormTests {
 
         // press the button "Submit"
         $("#submit").click();
+
+        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
+
+        $(".table-responsive").shouldHave(
+                text("Billy Gymov"),
+                text("BillyGymov@ga.org"),
+                text("Other"),
+                text("8800555353"),
+                text("28 January,1996"),
+                text("Maths"),
+                text("Reading, Music"),
+                text("300.png"),
+                text("300, Gatchino street, Saint-Peterburg"),
+                text("Haryana Karnal")
+                );
+
+        $("#closeLargeModal").click();
+        sleep(2000);
     }
 }
