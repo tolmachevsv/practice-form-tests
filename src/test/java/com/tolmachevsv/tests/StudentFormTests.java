@@ -24,7 +24,6 @@ public class StudentFormTests {
 
     @Test
     void fillFormTest() {
-
         $("#firstName").setValue("Billy");
         $("#lastName").setValue("Gymov");
         $("input#userEmail").setValue("BillyGymov@ga.org");
@@ -44,6 +43,7 @@ public class StudentFormTests {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
+
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(
                 text("Billy Gymov"),
