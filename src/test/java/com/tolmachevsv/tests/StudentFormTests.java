@@ -13,17 +13,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentFormTests {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browser = "FIREFOX";
-        Configuration.browserSize = "1920x1080";
-        open("https://demoqa.com/automation-practice-form");
-    }
+public class StudentFormTests extends TestBase {
 
     @Test
-    void fillFormTest() {
+    public void fillFormTest() {
         $("#firstName").setValue("Billy");
         $("#lastName").setValue("Gymov");
         $("input#userEmail").setValue("BillyGymov@ga.org");
