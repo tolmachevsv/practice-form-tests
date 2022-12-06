@@ -13,22 +13,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
 
+    public CalendarComponent calendar = new CalendarComponent();
+    public ButtonComponent button = new ButtonComponent();
     private SelenideElement
             formTitle = $(".practice-form-wrapper"),
             firstNameSelector = $("#firstName"),
             lastNameSelector = $("#lastName"),
             emailSelector = $("input#userEmail"),
-            picture = $("#uploadPicture"),
-            closeButton = $("#closeLargeModal");
+            picture = $("#uploadPicture");
     public SelenideElement buttonSubmit = $("#submit");
-    public SelenideElement tableWithResults = $(".table-responsive");
-    public CalendarComponent calendar = new CalendarComponent();
-    public ButtonComponent button = new ButtonComponent();
 
     public void openPage() {
         open("/automation-practice-form");
-        // есть ли смысл здесь константу FORM_TITLE создавать, как было в видео, без неё по мне так лучше код читается
-        // или здесь необязательна читабельность кода (главное, чтоб код в StudentFormWithPageObjectTests читался) ?
         formTitle.shouldHave(text("Student Registration Form"));
     }
 
@@ -46,11 +42,6 @@ public class RegistrationPage {
         emailSelector.setValue(email);
     }
 
-    // есть ощущение, что напрашивается проверка случаев, когда ответ != (1, 2, 3)
-    // нужно ли какой то свой эксепшн писать? или вообще пропустить
-    // вопрос такой еще: как определить, когда нужно в отдельный класс вынести компонент, а когда не нужно?
-    // здесь вроде можно создать компонент Button, потом вызывать его: RegistrationPage.button.chooseGender()...
-
     public void typePhone(Long phoneNumber) {
         $("#userNumber").setValue(String.valueOf(phoneNumber));
     }
@@ -58,8 +49,6 @@ public class RegistrationPage {
     public void chooseSubject(String name) {
         $("#subjectsInput").setValue(name).pressEnter();
     }
-
-    // chooseHobbies убрал в компоненты (нужно ли?)
 
     public void uploadFile(String pathname) {
         picture.uploadFile(new File(pathname));
@@ -78,13 +67,5 @@ public class RegistrationPage {
         $("#city").click();
         $("#stateCity-wrapper").$(byText(city)).click();
 
-    }
-
-    public void successfulTitle() {
-        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-    }
-
-    public void closeTable() {
-        closeButton.click();
     }
 }

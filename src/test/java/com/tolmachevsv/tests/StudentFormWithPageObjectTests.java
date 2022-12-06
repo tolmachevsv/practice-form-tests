@@ -1,6 +1,7 @@
 package com.tolmachevsv.tests;
 
 import com.github.javafaker.Faker;
+import com.tolmachevsv.pages.ChecksPage;
 import com.tolmachevsv.pages.RegistrationPage;
 
 import org.junit.jupiter.api.Test;
@@ -8,13 +9,15 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 
 public class StudentFormWithPageObjectTests extends TestBase {
+
+    RegistrationPage registrationPage = new RegistrationPage();
+    ChecksPage checksPage = new ChecksPage();
     Faker faker = new Faker();
     String firstNameValue = faker.name().firstName(),
             lastNameValue = faker.name().lastName(),
             emailValue = faker.internet().emailAddress(),
             address = faker.address().fullAddress();
     long phoneValue = faker.number().randomNumber(10, true);
-    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     public void fillFormTest() {
@@ -34,8 +37,8 @@ public class StudentFormWithPageObjectTests extends TestBase {
         registrationPage.selectCity("Delhi");
         registrationPage.buttonSubmit.click();
 
-        registrationPage.successfulTitle();
-        registrationPage.tableWithResults.shouldHave(
+        checksPage.successfulTitle();
+        checksPage.tableWithResults.shouldHave(
                 text(firstNameValue + " " + lastNameValue),
                 text(emailValue),
                 text("Other"),
@@ -47,6 +50,6 @@ public class StudentFormWithPageObjectTests extends TestBase {
                 text(address),
                 text("NCR Delhi")
                 );
-        registrationPage.closeTable();
+        checksPage.closeTable();
     }
 }
