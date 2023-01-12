@@ -66,6 +66,5 @@ public class RegistrationPage {
     public void selectCity(String city) {
         $("#city").click();
         $("#stateCity-wrapper").$(byText(city)).click();
-
     }
 }
