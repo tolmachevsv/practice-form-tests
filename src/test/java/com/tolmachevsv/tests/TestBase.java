@@ -6,14 +6,15 @@ import com.tolmachevsv.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.AcceptedW3CCapabilityKeys;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.codec.w3c.W3CHttpCommandCodec;
 
 public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
@@ -23,6 +24,7 @@ public class TestBase {
         Configuration.browserSize = "3060x2080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
     }
 
     @AfterEach
