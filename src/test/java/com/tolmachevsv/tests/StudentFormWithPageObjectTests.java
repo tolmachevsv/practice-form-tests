@@ -31,7 +31,7 @@ public class StudentFormWithPageObjectTests extends TestBase {
         registrationPage.chooseSubject("Math");
         registrationPage.button.chooseHobbies("2");
         registrationPage.button.chooseHobbies("3");
-        registrationPage.uploadFile("src/test/data/300.png");
+        registrationPage.uploadFile("img/300.png");
         registrationPage.typeAddress(address);
         registrationPage.selectState("NCR");
         registrationPage.selectCity("Delhi");

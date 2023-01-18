@@ -51,7 +51,7 @@ public class RegistrationPage {
     }
 
     public void uploadFile(String pathname) {
-        picture.uploadFile(new File(pathname));
+        picture.uploadFromClasspath(pathname);
     }
 
     public void typeAddress(String address) {
