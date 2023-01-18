@@ -1,17 +1,12 @@
 package com.tolmachevsv.tests;
 
-import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.BeforeAll;
-
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
-import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.by;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class StudentFormTests extends TestBase {
 
@@ -30,7 +25,7 @@ public class StudentFormTests extends TestBase {
         $("#subjectsInput").setValue("Math").pressEnter();
         $(by("for", "hobbies-checkbox-2")).click();
         $(by("for", "hobbies-checkbox-3")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/data/300.png"));
+        $("#uploadPicture").uploadFromClasspath("img/300.png");
         $("#currentAddress").setValue("300, Gatchino street, Saint-Peterburg");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
@@ -47,7 +42,7 @@ public class StudentFormTests extends TestBase {
                 text("28 January,1996"),
                 text("Maths"),
                 text("Reading, Music"),
-                text("300.png"),
+                text("img/300.png"),
                 text("300, Gatchino street, Saint-Peterburg"),
                 text("Haryana Karnal")
                 );

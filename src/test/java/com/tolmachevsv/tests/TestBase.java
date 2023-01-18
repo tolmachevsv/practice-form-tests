@@ -21,7 +21,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.browser = "FIREFOX";
-        Configuration.browserSize = "3060x2080";
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
