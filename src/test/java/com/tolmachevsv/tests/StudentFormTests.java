@@ -42,7 +42,7 @@ public class StudentFormTests extends TestBase {
                 text("28 January,1996"),
                 text("Maths"),
                 text("Reading, Music"),
-                text("img/300.png"),
+                text("300.png"),
                 text("300, Gatchino street, Saint-Peterburg"),
                 text("Haryana Karnal")
                 );

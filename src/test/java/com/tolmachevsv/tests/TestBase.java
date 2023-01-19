@@ -6,9 +6,7 @@ import com.tolmachevsv.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.AcceptedW3CCapabilityKeys;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.codec.w3c.W3CHttpCommandCodec;
 
 public class TestBase {
 
@@ -20,10 +18,10 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.browser = "FIREFOX";
-        Configuration.browserSize = "1920x1080";
+//        Configuration.browser = "FIREFOX";
+        Configuration.browserSize = "3080x2080";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
 
     }
 

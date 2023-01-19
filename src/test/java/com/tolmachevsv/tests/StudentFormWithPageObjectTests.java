@@ -46,7 +46,7 @@ public class StudentFormWithPageObjectTests extends TestBase {
                 text("03 May,1996"),
                 text("Maths"),
                 text("Reading, Music"),
-                text("img/300.png"),
+                text("300.png"),
                 text(address),
                 text("NCR Delhi")
                 );
