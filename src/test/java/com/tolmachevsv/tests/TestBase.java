@@ -37,6 +37,10 @@ public class TestBase {
         Configuration.browser = browser;
         Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
+        System.out.println(Configuration.baseUrl);
+        System.out.println(browserSize);
+        System.out.println(browser);
+        System.out.println(Configuration.remote);
     }
 
     @AfterEach

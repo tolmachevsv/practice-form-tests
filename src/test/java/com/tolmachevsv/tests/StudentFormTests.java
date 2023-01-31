@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class StudentFormTests extends TestBase {
 
     @Test
-    @Tag("without page object")
+    @Tag("selenide")
     public void fillFormTest() {
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue("Billy");

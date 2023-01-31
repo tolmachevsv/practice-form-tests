@@ -21,7 +21,7 @@ public class StudentFormWithPageObjectTests extends TestBase {
     long phoneValue = faker.number().randomNumber(10, true);
 
     @Test
-    @Tag("with page object")
+    @Tag("page_object")
     public void fillFormTest() {
         registrationPage.openPage();
         registrationPage.typeFirstName(firstNameValue)
