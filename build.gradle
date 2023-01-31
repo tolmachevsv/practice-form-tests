@@ -38,18 +38,18 @@ tasks.withType(Test) {
     useJUnitPlatform()
 }
 
-test {
-    useJUnitPlatform()
-}
-
 task page_object_tests(type: Test) {
     useJUnitPlatform {
-        includeTags "with page object"
+        includeTags("with page object")
     }
 }
 
 task selenide_tests(type: Test) {
     useJUnitPlatform {
-        includeTags "without page object"
+        includeTags("without page object")
     }
+}
+
+test {
+    useJUnitPlatform()
 }
