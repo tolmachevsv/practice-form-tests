@@ -1,5 +1,6 @@
 package com.tolmachevsv.tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -11,8 +12,9 @@ import static com.codeborne.selenide.Selenide.open;
 public class StudentFormTests extends TestBase {
 
     @Test
+    @Tag("selenide")
     public void fillFormTest() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $("#firstName").setValue("Billy");
         $("#lastName").setValue("Gymov");
         $("input#userEmail").setValue("BillyGymov@ga.org");

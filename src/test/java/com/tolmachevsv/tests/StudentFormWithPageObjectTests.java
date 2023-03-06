@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.tolmachevsv.pages.ChecksPage;
 import com.tolmachevsv.pages.RegistrationPage;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -20,6 +21,7 @@ public class StudentFormWithPageObjectTests extends TestBase {
     long phoneValue = faker.number().randomNumber(10, true);
 
     @Test
+    @Tag("page_object")
     public void fillFormTest() {
         registrationPage.openPage();
         registrationPage.typeFirstName(firstNameValue)
