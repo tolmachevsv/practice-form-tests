@@ -32,11 +32,12 @@ public class TestBase {
         String browserSize = System.getProperty("browserSize", "3840x2160");
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.baseUrl = System.getProperty("baseUrl"); // https://demoqa.com
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
         Configuration.browserSize = browserSize;
         Configuration.browser = browser;
-        Configuration.remote = format("https://%s:%s@%s", login, password, url);
+//        Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
+        Configuration.remote = System.getProperty("url", "http://localhost:8080");
         System.out.println(Configuration.baseUrl);
         System.out.println(browserSize);
         System.out.println(browser);

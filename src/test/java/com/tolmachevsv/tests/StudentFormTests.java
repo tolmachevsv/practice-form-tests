@@ -14,7 +14,7 @@ public class StudentFormTests extends TestBase {
     @Test
     @Tag("selenide")
     public void fillFormTest() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $("#firstName").setValue("Billy");
         $("#lastName").setValue("Gymov");
         $("input#userEmail").setValue("BillyGymov@ga.org");
