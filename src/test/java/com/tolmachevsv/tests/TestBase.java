@@ -37,7 +37,7 @@ public class TestBase {
         Configuration.browser = browser;
 //        Configuration.remote = format("https://%s:%s@%s", login, password, url);
 
-        Configuration.remote = System.getProperty("url", "http://localhost:8080");
+        Configuration.remote = System.getProperty("url", "http://localhost:8080/wd/hub");
         System.out.println(Configuration.baseUrl);
         System.out.println(browserSize);
         System.out.println(browser);
