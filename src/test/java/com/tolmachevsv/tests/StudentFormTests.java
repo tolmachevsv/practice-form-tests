@@ -2,6 +2,7 @@ package com.tolmachevsv.tests;
 
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +18,7 @@ public class StudentFormTests extends TestBase {
     @Tag("selenide")
     @AllureId("19346")
     @Feature("Demo QA")
+    @DisplayName("Тест без применения Page Object")
     public void fillFormTest() {
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue("Billy");
