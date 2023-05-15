@@ -1,5 +1,6 @@
 package com.tolmachevsv.tests;
 
+import io.qameta.allure.AllureId;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
