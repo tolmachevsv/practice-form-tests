@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationPage {
 
@@ -24,47 +25,72 @@ public class RegistrationPage {
     public SelenideElement buttonSubmit = $("#submit");
 
     public void openPage() {
-        open("/automation-practice-form");
-        formTitle.shouldHave(text("Student Registration Form"));
+        step("Открыть страницу с формой (https://demoqa.com/automation-practice-form)", () -> {
+            open("/automation-practice-form");
+            formTitle.shouldHave(text("Student Registration Form"));
+        });
     }
 
     public RegistrationPage typeFirstName(String fName) {
-        firstNameSelector.setValue(fName);
-
+        step("Ввести имя \"Billy\"", () -> {
+            firstNameSelector.setValue(fName);
+        });
         return this;
     }
 
     public void typeLastName(String lName) {
-        lastNameSelector.setValue(lName);
+        step("Ввести фамилию \"Gymov\"", () -> {
+            lastNameSelector.setValue(lName);
+        });
     }
 
     public void typeEmail(String email) {
-        emailSelector.setValue(email);
+        step("Ввести email \"BillyGymov@ga.org\"", () -> {
+            emailSelector.setValue(email);
+        });
     }
 
     public void typePhone(Long phoneNumber) {
-        $("#userNumber").setValue(String.valueOf(phoneNumber));
+        step("Ввести мобильный телефон \"88005553535\"", () -> {
+            $("#userNumber").setValue(String.valueOf(phoneNumber));
+        });
     }
 
     public void chooseSubject(String name) {
-        $("#subjectsInput").setValue(name).pressEnter();
+        step("В поле \"Предмет\" ввести значение \"Math\"", () -> {
+            $("#subjectsInput").setValue(name).pressEnter();
+        });
     }
 
     public void uploadFile(String pathname) {
-        picture.uploadFromClasspath(pathname);
+        step("Загрузить изображение", () -> {
+            picture.uploadFromClasspath(pathname);
+        });
     }
 
     public void typeAddress(String address) {
-        $("#currentAddress").setValue(address);
+        step("Заполнить адрес \"300, Gatchino street, Saint-Peterburg\"", () -> {
+            $("#currentAddress").setValue(address);
+        });
     }
 
     public void selectState(String state) {
-        $("#state").scrollTo().click();
-        $("#stateCity-wrapper").$(byText(state)).click();
+        step("Выбрать из выпадающего списка штат \"Haryana\"", () -> {
+            $("#state").scrollTo().click();
+            $("#stateCity-wrapper").$(byText(state)).click();
+        });
     }
 
     public void selectCity(String city) {
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText(city)).click();
+        step("Выбрать из выпадающего списка город \"Karnal\"", () -> {
+            $("#city").click();
+            $("#stateCity-wrapper").$(byText(city)).click();
+        });
+    }
+
+    public void clickSubmitButton() {
+        step("Нажать кнопку \"Отправить\"", () -> {
+            buttonSubmit.click();
+        });
     }
 }

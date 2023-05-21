@@ -32,66 +32,22 @@ public class StudentFormWithPageObjectTests extends TestBase {
     @Feature("Demo QA")
     @Owner("allure8")
     public void fillFormTest() {
-        step("Открыть страницу с формой (https://demoqa.com/automation-practice-form)", () -> {
-            registrationPage.openPage();
-        });
-        step("Ввести имя \"Billy\"", () -> {
-            registrationPage.typeFirstName(firstNameValue);
-        });
-        step("Ввести фамилию \"Gymov\"", () -> {
-            registrationPage.typeLastName(lastNameValue);
-        });
-        step("Ввести email \"BillyGymov@ga.org\"", () -> {
-            registrationPage.typeEmail(emailValue);
-        });
-        step("В поле Пол выбрать \"Другое\"", () -> {
-            registrationPage.button.chooseGender("3");
-        });
-        step("Ввести мобильный телефон \"88005553535\"", () -> {
-            registrationPage.typePhone(phoneValue);
-        });
-        step("Выбрать дату рождения из календаря \"28 января 1996\"", () -> {
-            registrationPage.calendar.setDate("03", "May", "1996");
-        });
-        step("В поле \"Предмет\" ввести значение \"Math\"", () -> {
-            registrationPage.chooseSubject("Math");
-        });
-        step("В поле Хобби выбрать \"Чтение\"", () -> {
-            registrationPage.button.chooseHobbies("2");
-        });
-        step("В поле Хобби выбрать \"Музыка\"", () -> {
-            registrationPage.button.chooseHobbies("3");
-        });
-        step("Загрузить изображение", () -> {
-            registrationPage.uploadFile("img/300.png");
-        });
-        step("Заполнить адрес \"300, Gatchino street, Saint-Peterburg\"", () -> {
-            registrationPage.typeAddress(address);
-        });
-        step("Выбрать из выпадающего списка штат \"Haryana\"", () -> {
-            registrationPage.selectState("NCR");
-        });
-        step("Выбрать из выпадающего списка город \"Karnal\"", () -> {
-            registrationPage.selectCity("Delhi");
-        });
-        step("Нажать кнопку \"Отправить\"", () -> {
-            registrationPage.buttonSubmit.click();
-            step("Поля формы отображаются согласно введенным значениям", () -> {
-                checksPage.successfulTitle();
-                checksPage.tableWithResults.shouldHave(
-                        text(firstNameValue + " " + lastNameValue),
-                        text(emailValue),
-                        text("Other"),
-                        text(String.valueOf(phoneValue)),
-                        text("03 May,1996"),
-                        text("Maths"),
-                        text("Reading, Music"),
-                        text("300.png"),
-                        text(address),
-                        text("NCR Delhi")
-                );
-                checksPage.closeTable();
-            });
-        });
+        registrationPage.openPage();
+        registrationPage.typeFirstName(firstNameValue);
+        registrationPage.typeLastName(lastNameValue);
+        registrationPage.typeEmail(emailValue);
+        registrationPage.button.chooseGender("3");
+        registrationPage.typePhone(phoneValue);
+        registrationPage.calendar.setDate("03", "May", "1996");
+        registrationPage.chooseSubject("Math");
+        registrationPage.button.chooseHobbies("2");
+        registrationPage.button.chooseHobbies("3");
+        registrationPage.uploadFile("img/300.png");
+        registrationPage.typeAddress(address);
+        registrationPage.selectState("NCR");
+        registrationPage.selectCity("Delhi");
+        registrationPage.clickSubmitButton();
+        checksPage.checkValidData();
+
     }
 }
