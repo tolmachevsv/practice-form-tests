@@ -11,9 +11,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static io.qameta.allure.Allure.step;
-
 public class StudentFormWithPageObjectTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -34,7 +31,9 @@ public class StudentFormWithPageObjectTests extends TestBase {
     public void fillFormTest() {
         registrationPage.openPage();
         registrationPage.typeFirstName(firstNameValue);
+        System.out.println(firstNameValue);
         registrationPage.typeLastName(lastNameValue);
+        System.out.println(lastNameValue);
         registrationPage.typeEmail(emailValue);
         registrationPage.button.chooseGender("3");
         registrationPage.typePhone(phoneValue);
@@ -47,7 +46,8 @@ public class StudentFormWithPageObjectTests extends TestBase {
         registrationPage.selectState("NCR");
         registrationPage.selectCity("Delhi");
         registrationPage.clickSubmitButton();
-        checksPage.checkValidData();
+        checksPage.checkValidData(firstNameValue, lastNameValue, emailValue,
+                String.valueOf(phoneValue), address);
 
     }
 }

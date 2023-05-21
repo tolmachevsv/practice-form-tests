@@ -38,10 +38,11 @@ public class RegistrationPage {
         return this;
     }
 
-    public void typeLastName(String lName) {
+    public RegistrationPage typeLastName(String lName) {
         step("Ввести фамилию \"Gymov\"", () -> {
             lastNameSelector.setValue(lName);
         });
+        return this;
     }
 
     public void typeEmail(String email) {

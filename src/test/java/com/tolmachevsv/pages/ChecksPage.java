@@ -12,13 +12,6 @@ public class ChecksPage {
     public SelenideElement tableWithResults = $(".table-responsive");
     private SelenideElement closeButton = $("#closeLargeModal");
 
-    Faker faker = new Faker();
-    String firstNameValue = faker.name().firstName(),
-            lastNameValue = faker.name().lastName(),
-            emailValue = faker.internet().emailAddress(),
-            address = faker.address().fullAddress();
-    long phoneValue = faker.number().randomNumber(10, true);
-
     public void successfulTitle() {
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
     }
@@ -27,10 +20,13 @@ public class ChecksPage {
         closeButton.click();
     }
 
-    public void checkValidData() {
+    public void checkValidData(String firstNameValue, String lastNameValue,
+                               String emailValue, String phoneValue, String address) {
         step("Поля формы отображаются согласно введенным значениям", () -> {
             step("Появляется текст об успешной отправке формы", this::successfulTitle);
             step("Поля формы заполнены согласно введенным значениям", () -> {
+                System.out.println(firstNameValue);
+                System.out.println(lastNameValue);
                 tableWithResults.shouldHave(
                         text(firstNameValue + " " + lastNameValue),
                         text(emailValue),

@@ -27,12 +27,12 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
 
-        String url = System.getProperty("url");
+        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub");
         String browser = System.getProperty("browser", "chrome");
         String browserSize = System.getProperty("browserSize", "3840x2160");
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.baseUrl = System.getProperty("baseUrl"); // https://demoqa.com
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
         Configuration.browserSize = browserSize;
         Configuration.browser = browser;
         Configuration.remote = format("https://%s:%s@%s", login, password, url);
