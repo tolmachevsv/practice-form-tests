@@ -4,8 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import com.tolmachevsv.pages.components.ButtonComponent;
 import com.tolmachevsv.pages.components.CalendarComponent;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;

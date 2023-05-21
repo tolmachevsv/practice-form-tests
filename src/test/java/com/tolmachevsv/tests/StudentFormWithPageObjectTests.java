@@ -31,9 +31,7 @@ public class StudentFormWithPageObjectTests extends TestBase {
     public void fillFormTest() {
         registrationPage.openPage();
         registrationPage.typeFirstName(firstNameValue);
-        System.out.println(firstNameValue);
         registrationPage.typeLastName(lastNameValue);
-        System.out.println(lastNameValue);
         registrationPage.typeEmail(emailValue);
         registrationPage.button.chooseGender("3");
         registrationPage.typePhone(phoneValue);
@@ -48,6 +46,5 @@ public class StudentFormWithPageObjectTests extends TestBase {
         registrationPage.clickSubmitButton();
         checksPage.checkValidData(firstNameValue, lastNameValue, emailValue,
                 String.valueOf(phoneValue), address);
-
     }
 }
